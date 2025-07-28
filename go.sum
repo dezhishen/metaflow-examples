@@ -2,6 +2,8 @@ github.com/OpenListTeam/metaflow v0.0.0-20250728044012-de1bed1ef3c5 h1:NDFCm2KQX
 github.com/OpenListTeam/metaflow v0.0.0-20250728044012-de1bed1ef3c5/go.mod h1:So29ipxJkk/8t0dkZ90QJ+6Olwiv5Wjs4z/D2xR8PTA=
 github.com/OpenListTeam/metaflow v0.0.0-20250728075539-eebdacce7e44 h1:qbYkSwGSf6ehLn9w/QCNkm4W1+oUJs6mLL6NW/GCtJI=
 github.com/OpenListTeam/metaflow v0.0.0-20250728075539-eebdacce7e44/go.mod h1:So29ipxJkk/8t0dkZ90QJ+6Olwiv5Wjs4z/D2xR8PTA=
+github.com/OpenListTeam/metaflow v0.0.0-20250728082642-08f96a38c789 h1:LPks8Ayj+WnqeqeiZgjOFEeH/vyBkjZ3KwkrFHiVuG0=
+github.com/OpenListTeam/metaflow v0.0.0-20250728082642-08f96a38c789/go.mod h1:So29ipxJkk/8t0dkZ90QJ+6Olwiv5Wjs4z/D2xR8PTA=
 github.com/bytedance/sonic v1.11.6 h1:oUp34TzMlL+OY1OUWxHqsdkgC/Zfc85zGqw9siXjrc0=
 github.com/bytedance/sonic v1.11.6/go.mod h1:LysEHSvpvDySVdC2f87zGWf6CIKJcAvqab1ZaiQtds4=
 github.com/bytedance/sonic/loader v0.1.1 h1:c+e5Pt1k/cy5wMveRDyk2X4B9hF4g7an8N3zCYjJFNM=

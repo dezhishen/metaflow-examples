@@ -3,7 +3,7 @@ module github.com/OpenListTeam/metaflow-examples
 go 1.24.0
 
 require (
-	github.com/OpenListTeam/metaflow v0.0.0-20250728075539-eebdacce7e44
+	github.com/OpenListTeam/metaflow v0.0.0-20250728082642-08f96a38c789
 	github.com/gin-gonic/gin v1.10.1
 )
 

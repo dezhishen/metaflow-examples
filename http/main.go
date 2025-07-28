@@ -19,7 +19,32 @@ func main() {
 	go startGinServer()
 	time.Sleep(3 * time.Second) // 等待服务器启动
 	fmt.Println("服务器已启动，监听端口 8080")
+	write()
+	read()
+}
 
+func read() {
+	rMeta := &metaflow.StreamMetadata{
+		URL: "http://localhost:8080/raw/test",
+		Metadata: map[string]string{
+			"http-method": "GET",
+		},
+	}
+	r, err := metaflow.CreateStream(rMeta)
+	if err != nil {
+		fmt.Println("创建 StreamReader 失败:", err)
+		return
+	}
+	defer r.Close()
+	content, err := io.ReadAll(r)
+	if err != nil {
+		fmt.Println("读取 StreamReader 失败:", err)
+		return
+	}
+	fmt.Println("读取的文件内容:", string(content))
+}
+
+func write() {
 	wMeta := &metaflow.StreamMetadata{
 		URL: "http://localhost:8080/raw/test",
 		Metadata: map[string]string{
@@ -31,36 +56,12 @@ func main() {
 		fmt.Println("创建 StreamWriter 失败:", err)
 		return
 	}
+	defer w.Close()
 	w.Write([]byte("Hello, this is a test file content!"))
+	w.Write([]byte("\nThis is a new line."))
 	fmt.Println("文件已上传")
-	if err := w.Close(); err != nil {
-		fmt.Println("关闭 StreamWriter 失败:", err)
-		return
-	}
-	rMeta := &metaflow.StreamMetadata{
-		URL: "http://localhost:8080/raw/test",
-		Metadata: map[string]string{
-			"http-method": "GET",
-		},
-	}
-
-	r, err := metaflow.CreateStream(rMeta)
-	if err != nil {
-		fmt.Println("创建 StreamReader 失败:", err)
-		return
-	}
-	content, err := io.ReadAll(r)
-	if err != nil {
-		fmt.Println("读取 StreamReader 失败:", err)
-		return
-	}
-	fmt.Println("读取的文件内容:", string(content))
-	if err := r.Close(); err != nil {
-		fmt.Println("关闭 StreamReader 失败:", err)
-		return
-	}
-
 }
+
 func startGinServer() {
 	// 确保上传目录存在
 	if _, err := os.Stat(uploadDir); os.IsNotExist(err) {
